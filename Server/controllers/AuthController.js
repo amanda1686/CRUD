@@ -1,6 +1,6 @@
-
-
 import { User } from "../Models/Auth.Models.js"
+import bcrypt from "bcrypt"
+
 export const Register = async (req, res) => {
     const {username, password, email} = req.body
     try {
@@ -8,11 +8,11 @@ export const Register = async (req, res) => {
         if (existingEmail) {
             res.status(400).json({message:"This email already exist"})
         }
-        // const salt = await bcrypt.genSalt(10);
-        // const hasPassword = await bcrypt.hash(password, salt);
+        const salt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash(password, salt);
         const credentials = new User({
             username: username,
-            password: password,
+            password: hashPassword,
             email: email
         })
         await credentials.save()
