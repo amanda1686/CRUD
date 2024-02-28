@@ -41,11 +41,15 @@ export const Login = async (req, res) =>  {
        }
        const token = jwt.sign({
         email: email,
-        role: role,
-        password: pa
+        role: user.role,
+        password: password
+       },"codesecret")
+       await res.header({
+        "auth": token
        })
+       res.status(200).json({message:"Login successfull", token})
     } catch (error) {
-        
+        res.status(500).json({ message: "Something went wrong", error: error });
     }
     
 }
