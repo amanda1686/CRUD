@@ -16,3 +16,4 @@ Server/node_modules/.bin/rimraf.cmd
 Server/node_modules/.bin/semver.cmd
 Server/node_modules/@mapbox/node-pre-gyp/bin/node-pre-gyp.cmd
 Server/node_modules/make-dir/node_modules/.bin/semver.cmd
+node_modules
