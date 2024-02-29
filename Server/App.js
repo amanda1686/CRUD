@@ -1,5 +1,5 @@
 import express from 'express'
-import { db } from "./Databse/db.js";
+import  db  from "./Databse/db.js";
 import todoRoutes from "./routes/routes.js"
 import AuthRoutes from "./routes/AuthRoutes.js"
 
